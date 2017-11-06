@@ -1,0 +1,32 @@
+<html>
+	<head>
+	<script src="angular.js"></script>
+	<script src="angmin.js"></script>
+	<head>
+
+	<body>
+
+		<div ng-app="myapp" ng-controller="customersCtrl"> 
+			<div >
+
+				<table border="1" width="100%">
+					<tr>
+						<th ng-click="orderByMe('userId')">UserID</th>
+						<th ng-click="orderByMe('id')">ID</th>
+						<th ng-click="orderByMe('title')">Title</th>
+						<th ng-click="orderByMe('body')">Body</th>
+					</tr>
+					<tr ng-repeat="x in names | orderBy:myOrderBy">
+						<td ng-style="(names[$index-1] && names[$index-1].userId == x.userId) && {'border': 'none'  } || {'background-color':'green'}" >{{(names[$index-1] && names[$index-1].userId == x.userId) ? '' : x.userId}}</td>
+						<td>{{ x.id}}</td>
+						<td>{{ x.title}} </td>
+						<td>{{ x.body}}</td>
+					</tr>
+				</table>
+				
+			</div>
+
+		</div>
+
+	</body>
+</html>
